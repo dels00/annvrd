@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>about us ♡</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:
+      radial-gradient(circle at top, rgba(255,255,255,0.1), transparent 40%),
+      linear-gradient(180deg,#fff7f5,#ffe7e3,#f8d7da,#f5e8df);
+      color:#5a3b3b;
+      overflow-x:hidden;
+    }
+
+    ::selection{
+      background:#d98f9d;
+      color:white;
+    }
+
+    .stars{
+      position:fixed;
+      width:100%;
+      height:100%;
+      overflow:hidden;
+      z-index:-1;
+      top:0;
+      left:0;
+    }
+
+    .stars span{
+      position:absolute;
+      display:block;
+      width:4px;
+      height:4px;
+      background:white;
+      border-radius:50%;
+      animation:twinkle 5s linear infinite;
+      opacity:.7;
+    }
+
+    @keyframes twinkle{
+      0%,100%{opacity:.2; transform:translateY(0px);}
+      50%{opacity:1; transform:translateY(-10px);}
+    }
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:40px;
+      position:relative;
+    }
+
+    .glass{
+      background:rgba(255,255,255,0.35);
+      border:1px solid rgba(255,255,255,0.3);
+      backdrop-filter:blur(14px);
+      border-radius:35px;
+      padding:50px;
+      max-width:850px;
+      box-shadow:0 15px 50px rgba(0,0,0,0.08);
+      animation:fadeIn 2s ease;
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(30px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .hero h1{
+      font-size:3.5rem;
+      color:#8f4f5c;
+      margin-bottom:15px;
+    }
+
+    .typing{
+      overflow:hidden;
+      white-space:nowrap;
+      border-right:3px solid #b96b7b;
+      width:0;
+      animation:typing 5s steps(50,end) forwards, blink .8s infinite;
+      margin:auto;
+      font-size:1.1rem;
+      color:#6e4c4c;
+    }
+
+    @keyframes typing{
+      to{
+        width:100%;
+      }
+    }
+
+    @keyframes blink{
+      50%{
+        border-color:transparent;
+      }
+    }
+
+    .enter-btn{
+      margin-top:35px;
+      padding:14px 30px;
+      border:none;
+      border-radius:50px;
+      background:#b76e79;
+      color:white;
+      font-size:1rem;
+      cursor:pointer;
+      transition:.4s;
+      box-shadow:0 10px 25px rgba(183,110,121,.3);
+    }
+
+    .enter-btn:hover{
+      transform:translateY(-4px) scale(1.03);
+      background:#9f5964;
+    }
+
+    section{
+      padding:100px 12%;
+    }
+
+    .title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .title h2{
+      font-size:2.5rem;
+      color:#8d4f5c;
+      margin-bottom:10px;
+    }
+
+    .title p{
+      color:#7b6363;
+    }
+
+    .story-card{
+      background:rgba(255,255,255,.55);
+      padding:35px;
+      border-radius:30px;
+      margin-bottom:30px;
+      box-shadow:0 10px 35px rgba(0,0,0,.05);
+      transition:.4s;
+    }
+
+    .story-card:hover{
+      transform:translateY(-5px);
+    }
+
+    .story-card h3{
+      margin-bottom:15px;
+      color:#9a5967;
+    }
+
+    .timeline{
+      position:relative;
+      margin-top:50px;
+    }
+
+    .timeline::before{
+      content:"";
+      position:absolute;
+      left:50%;
+      top:0;
+      width:4px;
+      height:100%;
+      background:#d9a7b1;
+      transform:translateX(-50%);
+    }
+
+    .timeline-item{
+      width:50%;
+      padding:25px 40px;
+      position:relative;
+    }
+
+    .timeline-item:nth-child(odd){
+      left:0;
+      text-align:right;
+    }
+
+    .timeline-item:nth-child(even){
+      left:50%;
+    }
+
+    .timeline-content{
+      background:white;
+      padding:25px;
+      border-radius:25px;
+      box-shadow:0 10px 25px rgba(0,0,0,.06);
+      transition:.4s;
+    }
+
+    .timeline-content:hover{
+      transform:scale(1.02);
+    }
+
+    .timeline-content h4{
+      color:#b06c79;
+      margin-bottom:8px;
+    }
+
+    .list-box{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+    }
+
+    .mini-box{
+      background:rgba(255,255,255,.65);
+      border-radius:25px;
+      padding:25px;
+      transition:.4s;
+      box-shadow:0 8px 20px rgba(0,0,0,.05);
+    }
+
+    .mini-box:hover{
+      transform:translateY(-6px);
+    }
+
+    .mini-box span{
+      font-size:1.7rem;
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:25px;
+    }
+
+    .photo{
+      height:280px;
+      border-radius:28px;
+      overflow:hidden;
+      position:relative;
+      cursor:pointer;
+      box-shadow:0 10px 30px rgba(0,0,0,.08);
+    }
+
+    .photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:.6s;
+    }
+
+    .photo:hover img{
+      transform:scale(1.08);
+    }
+
+    .overlay{
+      position:absolute;
+      bottom:0;
+      width:100%;
+      padding:20px;
+      background:linear-gradient(transparent,rgba(0,0,0,.7));
+      color:white;
+      opacity:0;
+      transition:.5s;
+    }
+
+    .photo:hover .overlay{
+      opacity:1;
+    }
+
+    .letter{
+      background:#fffdfb;
+      border-radius:35px;
+      padding:50px;
+      box-shadow:0 15px 40px rgba(0,0,0,.07);
+      position:relative;
+    }
+
+    .letter::before{
+      content:"♡";
+      position:absolute;
+      top:20px;
+      right:30px;
+      font-size:2rem;
+      color:#d7a0aa;
+    }
+
+    .hand{
+      font-family:'Caveat',cursive;
+      font-size:2rem;
+      line-height:1.8;
+      color:#7c4f58;
+    }
+
+    .secret-trigger{
+      margin-top:60px;
+      text-align:center;
+    }
+
+    .secret-btn{
+      background:none;
+      border:2px dashed #c08a95;
+      padding:12px 28px;
+      border-radius:50px;
+      cursor:pointer;
+      color:#8b5b65;
+      transition:.4s;
+    }
+
+    .secret-btn:hover{
+      background:#c08a95;
+      color:white;
+    }
+
+    .secret{
+      margin-top:35px;
+      display:none;
+      animation:fadeIn 1s ease;
+    }
+
+    .secret-box{
+      background:linear-gradient(135deg,#fff,#ffe3e8);
+      padding:40px;
+      border-radius:30px;
+      box-shadow:0 15px 35px rgba(0,0,0,.06);
+      text-align:center;
+    }
+
+    .secret-box h3{
+      color:#9b5b67;
+      margin-bottom:20px;
+      font-size:2rem;
+    }
+
+    .footer{
+      text-align:center;
+      padding:50px 20px;
+      color:#866868;
+      font-size:.95rem;
+    }
+
+    .music-btn{
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      z-index:999;
+      border:none;
+      background:#b76e79;
+      color:white;
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      cursor:pointer;
+      box-shadow:0 10px 25px rgba(0,0,0,.15);
+      font-size:1.3rem;
+    }
+
+    @media(max-width:900px){
+
+      .hero h1{
+        font-size:2.4rem;
+      }
+
+      .timeline::before{
+        left:10px;
+      }
+
+      .timeline-item{
+        width:100%;
+        padding-left:40px;
+        padding-right:0;
+        text-align:left !important;
+        left:0 !important;
+        margin-bottom:30px;
+      }
+    }
+
+      .photo-timeline{
+  overflow:hidden;
+  padding:0;
+}
+
+.photo-timeline img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  display:block;
+  transition:.5s;
+}
+
+.photo-timeline:hover img{
+  transform:scale(1.05);
+}
+
+.timeline-text{
+  padding:22px;
+}
+
+.timeline-text h4{
+  color:#b06c79;
+  margin-bottom:10px;
+}
+
+
+
+  </style>
+</head>
+
+<body>
+
+<div class="stars">
+  <span style="left:10%;top:20%"></span>
+  <span style="left:30%;top:60%"></span>
+  <span style="left:80%;top:10%"></span>
+  <span style="left:60%;top:80%"></span>
+  <span style="left:50%;top:30%"></span>
+  <span style="left:90%;top:70%"></span>
+</div>
+
+<button class="music-btn" onclick="toggleMusic()">♫</button>
+
+<audio id="bgMusic" loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8f6b4f6df.mp3?filename=romantic-background-112193.mp3" type="audio/mp3">
+</audio>
+
+<section class="hero">
+  <div class="glass">
+    <h1>our little universe ♡</h1>
+
+    <p class="typing">
+      haloo robby nya delisss
+    </p>
+
+    <button class="enter-btn" onclick="document.getElementById('story').scrollIntoView()">
+      buka yaa
+    </button>
+  </div>
+</section>
+
+<section id="story">
+  <div class="title">
+    <h2>how it started</h2>
+    <p>aneh ya, semua ini awalnya cuma dari pertanyaan "skl mn?" biasa.</p>
+  </div>
+
+  <div class="story-card">
+    <h3>first impression</h3>
+    <p>
+      jujur aja dulu aku ga nyangka hubungan kita bakal sampai sejauh ini. awalnya cuma hts biasa, temenan tapi deket, chat seadanya, bahkan kamu dulu cuek banget 😭 tapi anehnya aku ga ilfeel sama sekali. malah lama-lama nyaman. dan tanpa sadar, kamu jadi orang yang selalu aku tungguin notifnya.
+    </p>
+  </div>
+
+  <div class="story-card">
+    <h3>the unexpected comfort</h3>
+    <p>
+      aku juga sadar, pelan-pelan kamu berubah. dari yang awalnya cuek, jadi lebih perhatian. kamu mulai ngelarang aku main jauh, khawatir sama aku, dan walaupun kadang nyebelin, aku tau itu cara kamu peduli. dan dari situ aku mulai ngerasa, “kayanya aku ga mau kehilangan orang ini deh.”
+    </p>
+  </div>
+
+</section>
+
+<section>
+
+  <div class="title">
+    <h2>timeline of us</h2>
+    <p>potongan waktu yang ternyata jadi bagian penting hidup kita.</p>
+  </div>
+
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-content photo-timeline">
+
+        <img src="foto1.jpg" alt="first chat">
+
+        <div class="timeline-text">
+          <h4>first chat 💬</h4>
+          <p>
+            lucu ya, dari pertanyaan random ini ternyata semuanya mulai.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-content photo-timeline">
+
+        <img src="foto2.jpg" alt="first call">
+
+        <div class="timeline-text">
+          <h4>first call ☎</h4>
+          <p>
+            dari yg amu nakut-nakutin kamu, eh tau-taunya lanjut sampe sekarang.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-content photo-timeline">
+
+        <img src="foto3.jpg" alt="first date">
+
+        <div class="timeline-text">
+          <h4>first date 🌷</h4>
+          <p>
+            pertama kali kamu main kerumah aku, aku juga ga nyangka kamu bakal langsung sedeket itu..
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<section>
+
+  <div class="title">
+    <h2>little things i miss</h2>
+    <p>hal-hal kecil yang ternyata paling ngangenin.</p>
+  </div>
+
+  <div class="list-box">
+
+    <div class="mini-box">
+      <span>🤍</span>
+      <p>aku kangen cara kamu tiba-tiba perhatian kecil yang random.</p>
+    </div>
+
+    <div class="mini-box">
+      <span>🌙</span>
+      <p>aku kangen waktu kita ngobrol sampe malem terus malah bahas hal ga jelas 😭</p>
+    </div>
+
+    <div class="mini-box">
+      <span>🐣</span>
+      <p>aku suka cara kamu berubah pelan-pelan jadi lebih perhatian dari sebelumnya.</p>
+    </div>
+
+    <div class="mini-box">
+      <span>🍜</span>
+      <p>aku kangen kita yang ga banyak salah paham kaya akhir-akhir ini.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<section>
+
+  <div class="title">
+    <h2>things i secretly love about you</h2>
+    <p>aku suka cara kamu berusaha ngerti keadaan aku.</p>
+  </div>
+
+  <div class="list-box">
+
+    <div class="mini-box">
+      <span>🌷</span>
+      <p>aku suka karena kamu tetep bertahan walaupun hubungan kita ga selalu gampang.</p>
+    </div>
+
+    <div class="mini-box">
+      <span>✨</span>
+      <p>aku suka waktu kamu nunjukin rasa peduli dengan cara kamu sendiri.</p>
+    </div>
+
+    <div class="mini-box">
+      <span>☁</span>
+      <p>aku suka karena walaupun banyak kurangnya, kamu tetep jadi tempat nyaman aku.</p>
+    </div>
+
+    <div class="mini-box">
+      <span>🫶</span>
+      <p>dan jujur... aku masih selalu milih kamu sampai sekarang.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<section>
+
+  <div class="title">
+    <h2>a little letter</h2>
+    <p>surat digital kecil dari hati yang agak malu ngomong langsung.</p>
+  </div>
+
+  <div class="letter">
+    <p class="hand">
+      happy anniversary sayang 🤍
+      <br><br>
+      ga kerasa ya kita udah sampai 1 tahun walaupun selama itu kita banyak banget ngelewatin suka duka, banyak ketawa, banyak cerita random, banyak marah-marahan, bahkan banyak salah paham juga.
+      <br><br>
+      kadang hubungan kita cape, kadang ego kita sama-sama tinggi, kadang diem-dieman cuma karena hal kecil.
+      <br><br>
+      tapi di balik itu semua, aku tetep bersyukur karena kita masih ada sampai sekarang.
+      <br><br>
+      makasih ya, udah bertahan sejauh ini. makasih udah nemenin hari-hari aku. makasih karena pelan-pelan berubah jadi lebih baik. dan makasih karena selalu nyoba buat tetep ada.
+      <br><br>
+      jujur aku kadang sedih kalau kamu lupa anniversary kita 😭 karena buat aku, momen ini penting banget. ini tentang kita. tentang semua hal yang udah berhasil kita lewatin bareng.
+      <br><br>
+      aku ga minta hubungan kita sempurna. aku cuma berharap, semoga nanti kita sama-sama belajar buat lebih ngerti satu sama lain, lebih sabar, dan lebih dewasa lagi.
+      <br><br>
+      dan semoga... tahun pertama ini bukan jadi yang terakhir, tapi jadi awal dari cerita panjang kita selanjutnya 🤍
+    </p>
+  </div>
+
+  <div class="secret-trigger">
+
+    <button class="secret-btn" onclick="openSecret()">
+      jangan dipencet kalau ga siap 🥺
+    </button>
+
+    <div class="secret" id="secretBox">
+
+      <div class="secret-box">
+
+        <h3>the hidden part ♡</h3>
+
+        <p style="line-height:2;">
+          kalau kamu baca sampai sini, berarti kamu berhasil nemuin bagian paling jujur dari website ini.
+          <br><br>
+          aku cuma mau bilang...
+          <br><br>
+          aku mungkin ga selalu gampang dimengerti.
+          aku juga masih banyak salahnya. kadang keras kepala, kadang emosian, kadang bikin kamu cape.
+          <br><br>
+          tapi satu hal yang pasti, aku sayang banget sama kamu.
+          <br><br>
+          dan setelah semua yang kita lewatin selama ini, aku masih pengen kamu jadi orang yang nemenin aku nanti.
+          <br><br>
+          jadi...
+          tolong jangan capek sama aku ya?
+          <br><br>
+          dan kalau suatu hari nanti kita lagi marahan, tolong inget kita pernah sejauh ini, dan itu ga gampang 🤍
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<div class="footer">
+  1 year with you — full of stories, lessons, laughs, tears, and still my favorite person♡
+</div>
+
+<script>
+
+function openSecret(){
+  document.getElementById("secretBox").style.display = "block";
+}
+
+function toggleMusic(){
+  const music = document.getElementById("bgMusic");
+
+  if(music.paused){
+    music.play();
+  }else{
+    music.pause();
+  }
+}
+
+window.addEventListener("scroll", ()=>{
+
+  const cards = document.querySelectorAll('.story-card, .mini-box, .timeline-content, .photo, .letter');
+
+  cards.forEach(card=>{
+    const top = card.getBoundingClientRect().top;
+
+    if(top < window.innerHeight - 80){
+      card.style.opacity = "1";
+      card.style.transform = "translateY(0)";
+    }
+  });
+
+});
+
+document.querySelectorAll('.story-card, .mini-box, .timeline-content, .photo, .letter').forEach(el=>{
+  el.style.opacity = "0";
+  el.style.transform = "translateY(40px)";
+  el.style.transition = "all 1s ease";
+});
+
+</script>
+
+</body>
+</html>
