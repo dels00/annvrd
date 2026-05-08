@@ -446,7 +446,7 @@
       haloo robby nya delisss
     </p>
 
-    <button class="enter-btn" onclick="document.getElementById('story').scrollIntoView()">
+    <button class="enter-btn" onclick="document.getElementById('story').scrollIntoView()" onclick="playMusic()">
       buka yaa
     </button>
   </div>
@@ -673,14 +673,9 @@ function openSecret(){
   document.getElementById("secretBox").style.display = "block";
 }
 
-function toggleMusic(){
+function playMusic(){
   const music = document.getElementById("bgMusic");
-
-  if(music.paused){
-    music.play();
-  }else{
-    music.pause();
-  }
+  music.play();
 }
 
 window.addEventListener("scroll", ()=>{
@@ -703,6 +698,7 @@ document.querySelectorAll('.story-card, .mini-box, .timeline-content, .photo, .l
   el.style.transform = "translateY(40px)";
   el.style.transition = "all 1s ease";
 });
+
 
 </script>
 
